@@ -1,0 +1,304 @@
+From bc0ebe3beebaa1d127393e437670c558dab04ad2 Mon Sep 17 00:00:00 2001
+From: Ivy Ye <ye28888@gmail.com>
+Date: Tue, 19 Sep 2023 19:48:58 -0500
+Subject: [PATCH] patch file done
+
+---
+ .DS_Store                           | Bin 0 -> 6148 bytes
+ 0001-Re-add-sample-unit-test.patch  |  44 ++++++++++++
+ __pycache__/client3.cpython-310.pyc | Bin 0 -> 1160 bytes
+ client3.py                          |  12 +++-
+ client_test.py                      |  13 ++--
+ task1 (1).patch                     | 108 ++++++++++++++++++++++++++++
+ 6 files changed, 170 insertions(+), 7 deletions(-)
+ create mode 100644 .DS_Store
+ create mode 100644 0001-Re-add-sample-unit-test.patch
+ create mode 100644 __pycache__/client3.cpython-310.pyc
+ create mode 100644 task1 (1).patch
+
+diff --git a/.DS_Store b/.DS_Store
+new file mode 100644
+index 0000000000000000000000000000000000000000..e6e06a391ba493bc8a21c8f2c69d590bfaf5f031
+GIT binary patch
+literal 6148
+zcmeHKyH3L}6g_S`lvaX{EJzU(3{+J7Knm@^zycpoLQ?@EJewlAW#?n~8vcQenW>y>
+zTR_})MF`y+`5yb)$Bz>^jsckcN!kHg0P0MFwFcb+lX^*WR`HP)qOpDK;20z9AVE6U
+zS_7(pD)847kiEN!UHf#nbHDd*%F>uS`5Je~?5>{R2A9Yg&siSRw^^4EhqyS*Zii>t
+z?HT)%kI4&DduEL}posyWJ51R&k@oC?k$}|=SPiz!IOd2W=h(C3P0Jkf9B@`koIz=>
+zA$KF-u5kT*bkV~RvCXxo!Dt@=qlE{~?j94)QgYXRu4A%uJRvXhE9U{fK^;eAK3czU
+zg_YNUv&Nni@~+T9gf05*<!{2gk^S!8#B9cV{f8n$_VQSsVf7#wjYYM8sQ}Mxv3k>?
+zdR0IbPzAmekncmpBp7=v9NJF@oxK7OYYbasUXFj^L>^<0g+tcRjH41A)%YuhadgHb
+z-!Ar8ICOLvfB7(eWaDor#*WVZBikG%cBozzPzA~gR9&$p=YN0s{l84ok}9AI{3``a
+zt#{Jf=aT%{I=47EYa^ypCNXJOIJ6Wxe;nJ49L4KQ)>s!wh8TM+95O=F9|0?aI#u9T
+G75D^rGMA+Q
+
+literal 0
+HcmV?d00001
+
+diff --git a/0001-Re-add-sample-unit-test.patch b/0001-Re-add-sample-unit-test.patch
+new file mode 100644
+index 0000000..7bc873b
+--- /dev/null
++++ b/0001-Re-add-sample-unit-test.patch
+@@ -0,0 +1,44 @@
++From 879221fec2b863d37d5b493f02a530a8098ef6ef Mon Sep 17 00:00:00 2001
++From: Joe Ferrer <joe@theforage.com>
++Date: Wed, 1 Mar 2023 00:11:51 +1100
++Subject: [PATCH] Re-add sample unit test
++
++---
++ client_test.py | 25 +++++++++++++++++++++++++
++ 1 file changed, 25 insertions(+)
++ create mode 100644 client_test.py
++
++diff --git a/client_test.py b/client_test.py
++new file mode 100644
++index 0000000..af2bf26
++--- /dev/null
+++++ b/client_test.py
++@@ -0,0 +1,25 @@
+++import unittest
+++from client3 import getDataPoint
+++
+++class ClientTest(unittest.TestCase):
+++  def test_getDataPoint_calculatePrice(self):
+++    quotes = [
+++      {'top_ask': {'price': 121.2, 'size': 36}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 120.48, 'size': 109}, 'id': '0.109974697771', 'stock': 'ABC'},
+++      {'top_ask': {'price': 121.68, 'size': 4}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 117.87, 'size': 81}, 'id': '0.109974697771', 'stock': 'DEF'}
+++    ]
+++    """ ------------ Add the assertion below ------------ """
+++
+++  def test_getDataPoint_calculatePriceBidGreaterThanAsk(self):
+++    quotes = [
+++      {'top_ask': {'price': 119.2, 'size': 36}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 120.48, 'size': 109}, 'id': '0.109974697771', 'stock': 'ABC'},
+++      {'top_ask': {'price': 121.68, 'size': 4}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 117.87, 'size': 81}, 'id': '0.109974697771', 'stock': 'DEF'}
+++    ]
+++    """ ------------ Add the assertion below ------------ """
+++
+++
+++  """ ------------ Add more unit tests ------------ """
+++
+++
+++
+++if __name__ == '__main__':
+++    unittest.main()
++-- 
++2.37.0 (Apple Git-136)
++
+diff --git a/__pycache__/client3.cpython-310.pyc b/__pycache__/client3.cpython-310.pyc
+new file mode 100644
+index 0000000000000000000000000000000000000000..c944db4417de54a6af7461630baf96c834e27a7f
+GIT binary patch
+literal 1160
+zcmYjR&2Aev5GHrI(n^+GCvoHo$$<?Lv_k7_iXNJ}zlod{DG<Ynn*t?LY}ew*UVF7G
+zlT-?;@=1LV`PjGU3-kqe?J4)1dg_p}jZm0Bax_2R47O^wn*`78M@{&rLCC+(c=zBP
+z`3_0{jZ6|r3nG@13hM1Zgfb9Jh9Z(oMt>4flQmgKS%+B0$ANkU4QN6%r*pbZe*IFc
+z09mvkJZdjifi2zxx}fLeoSxIgnv>#MgXBb9himA)E^a^#Zp`T`Cf3DG(GeT)zHGoc
+z+=LEn3|WWFDJ3Ug;B6D?a9yr+3G!B#%!7-!JCg2U<$I*peuG_*o#_XM#*DX;q^Jg2
+zaad`y_3**N2g%6<)akdm{Q8fx{4FJ9fOK^t)EH79Nk2x`ATx~GC1=z)E$9*%Vpe(<
+zc$;0>;VhVi8$?F8$QheaXU*7<VLi3!=X_UHaxws(6$Lkkz)JuLlE2Q1321IAegGw?
+z%%BICnaRdgUK(yAZK}bst($6`?&s1*W0enJX=nQQO@I~lsEvk2m6={-qmxNxK)Gw%
+zz(1r*{|5RlRppxdi>MV8|NWM{)Sz^dzdk*MWE=D`=1HFQpZ>)A)kJB~$&b6w`kwKh
+zb7dx3!Jn3xpwx%?I2l$dJAloj@o2EAe}_$jX*NGi21O2~`RxAq)V2=5Y-2mSz8%b|
+zTgZYSrfc|X1ud%DcrkDVUmmAB@+0V=f+L`k;)>N}u!lpK(OU#z4X1bb4`4W=mRGzQ
+za^Gv3@vM{=`aV}~xI4bxULfihE|<!_e^@eCn2oXC7cSn%Xz3Uk)*3JxQ?=^f({z;O
+zWtvVueD08z{GR5S;U6K^Tle%Q91-x+Cqk_^jeR`yv*Dx1eH(5+`M%c`>_}Ios41+q
+z8j013DvEsnz5-lMZA5Kpi|F~wCog`nbjPD~RYIAKAWbdHaS}Gd7zbc!Y9m|%sYU%V
+zN*$wAV<>G62Q|u!WePHBYko(xsQDVTa$Wk3QSLLK+?T>{iC?zTyaSP28nwjfs}b&V
+l0pB=y^<8A~dW<NskcDv=uf)x@fYZPuw?;ekcF5kc;D7VEBD??q
+
+literal 0
+HcmV?d00001
+
+diff --git a/client3.py b/client3.py
+index 3fc09b7..c7a3063 100644
+--- a/client3.py
++++ b/client3.py
+@@ -35,14 +35,18 @@ def getDataPoint(quote):
+     stock = quote['stock']
+     bid_price = float(quote['top_bid']['price'])
+     ask_price = float(quote['top_ask']['price'])
+-    price = bid_price
++    #price = bid_price
++    price = (bid_price + ask_price) / 2
+     return stock, bid_price, ask_price, price
+ 
+ 
+ def getRatio(price_a, price_b):
+     """ Get ratio of price_a and price_b """
+     """ ------------- Update this function ------------- """
+-    return 1
++    #return 1
++    if price_b == 0:
++        return 
++    return price_a / price_b
+ 
+ 
+ # Main
+@@ -52,8 +56,10 @@ if __name__ == "__main__":
+         quotes = json.loads(urllib.request.urlopen(QUERY.format(random.random())).read())
+ 
+         """ ----------- Update to get the ratio --------------- """
++        prices = {}
+         for quote in quotes:
+             stock, bid_price, ask_price, price = getDataPoint(quote)
+             print("Quoted %s at (bid:%s, ask:%s, price:%s)" % (stock, bid_price, ask_price, price))
+ 
+-        print("Ratio %s" % getRatio(price, price))
++        #print("Ratio %s" % getRatio(price, price))
++        print("Ratio %s" % getRatio(prices["ABC"], prices["DEF"]))
+diff --git a/client_test.py b/client_test.py
+index af2bf26..7e67de0 100644
+--- a/client_test.py
++++ b/client_test.py
+@@ -1,5 +1,6 @@
++
+ import unittest
+-from client3 import getDataPoint
++from client3 import getDataPoint, getRatio
+ 
+ class ClientTest(unittest.TestCase):
+   def test_getDataPoint_calculatePrice(self):
+@@ -8,6 +9,9 @@ class ClientTest(unittest.TestCase):
+       {'top_ask': {'price': 121.68, 'size': 4}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 117.87, 'size': 81}, 'id': '0.109974697771', 'stock': 'DEF'}
+     ]
+     """ ------------ Add the assertion below ------------ """
++    for quote in quotes:
++      self.assertEqual(getDataPoint(quote), (quote['stock'], quote['top_bid']['price'], quote['top_ask']['price'], (quote['top_bid']['price'] + quote['top_ask']['price'])/2))
++
+ 
+   def test_getDataPoint_calculatePriceBidGreaterThanAsk(self):
+     quotes = [
+@@ -15,11 +19,12 @@ class ClientTest(unittest.TestCase):
+       {'top_ask': {'price': 121.68, 'size': 4}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 117.87, 'size': 81}, 'id': '0.109974697771', 'stock': 'DEF'}
+     ]
+     """ ------------ Add the assertion below ------------ """
++    for quote in quotes:
++      self.assertEqual(getDataPoint(quote), (quote['stock'], quote['top_bid']['price'], quote['top_ask']['price'], (quote['top_bid']['price'] + quote['top_ask']['price'])/2))
+ 
+ 
+-  """ ------------ Add more unit tests ------------ """
++if __name__ == '__main__':
++    unittest.main()
+ 
+ 
+ 
+-if __name__ == '__main__':
+-    unittest.main()
+diff --git a/task1 (1).patch b/task1 (1).patch
+new file mode 100644
+index 0000000..2748281
+--- /dev/null
++++ b/task1 (1).patch	
+@@ -0,0 +1,108 @@
++From ad2268762f8bdbc2ed5efe6f88fe40b89776c8b3 Mon Sep 17 00:00:00 2001
++From: Joe Ferrer <joe@theforage.com>
++Date: Wed, 1 Mar 2023 02:31:47 +1100
++Subject: [PATCH 1/4] Update getDataPoint
++
++---
++ client3.py | 2 +-
++ 1 file changed, 1 insertion(+), 1 deletion(-)
++
++diff --git a/client3.py b/client3.py
++index 3fc09b7..e73447e 100644
++--- a/client3.py
+++++ b/client3.py
++@@ -35,7 +35,7 @@ def getDataPoint(quote):
++     stock = quote['stock']
++     bid_price = float(quote['top_bid']['price'])
++     ask_price = float(quote['top_ask']['price'])
++-    price = bid_price
+++    price = (bid_price + ask_price) / 2
++     return stock, bid_price, ask_price, price
++ 
++ 
++-- 
++2.34.1
++
++
++From ea26471b2ee0bc3fedcf934888e65c5eee65a7fe Mon Sep 17 00:00:00 2001
++From: Joe Ferrer <joe@theforage.com>
++Date: Wed, 1 Mar 2023 02:32:48 +1100
++Subject: [PATCH 2/4] Update getRatio
++
++---
++ client3.py | 4 +++-
++ 1 file changed, 3 insertions(+), 1 deletion(-)
++
++diff --git a/client3.py b/client3.py
++index e73447e..1f1bef7 100644
++--- a/client3.py
+++++ b/client3.py
++@@ -42,7 +42,9 @@ def getDataPoint(quote):
++ def getRatio(price_a, price_b):
++     """ Get ratio of price_a and price_b """
++     """ ------------- Update this function ------------- """
++-    return 1
+++    if (price_b === 0):
+++        return
+++    return price_a / price_b
++ 
++ 
++ # Main
++-- 
++2.34.1
++
++
++From 2558a2e81380ac17b8b85db1926f4f4f016cc60b Mon Sep 17 00:00:00 2001
++From: Joe Ferrer <joe@theforage.com>
++Date: Wed, 1 Mar 2023 02:40:57 +1100
++Subject: [PATCH 3/4] Update main
++
++---
++ client3.py | 4 +++-
++ 1 file changed, 3 insertions(+), 1 deletion(-)
++
++diff --git a/client3.py b/client3.py
++index 1f1bef7..a517f2c 100644
++--- a/client3.py
+++++ b/client3.py
++@@ -54,8 +54,10 @@ if __name__ == "__main__":
++         quotes = json.loads(urllib.request.urlopen(QUERY.format(random.random())).read())
++ 
++         """ ----------- Update to get the ratio --------------- """
+++        prices = {}
++         for quote in quotes:
++             stock, bid_price, ask_price, price = getDataPoint(quote)
+++            prices[stock] = price
++             print("Quoted %s at (bid:%s, ask:%s, price:%s)" % (stock, bid_price, ask_price, price))
++ 
++-        print("Ratio %s" % getRatio(price, price))
+++        print("Ratio %s" % getRatio(prices["ABC"], prices["DEF"]))
++-- 
++2.34.1
++
++
++From a784bacee6366ddf623cfe6250a2fe6bd1beff08 Mon Sep 17 00:00:00 2001
++From: Joe Ferrer <joe@theforage.com>
++Date: Wed, 1 Mar 2023 02:41:52 +1100
++Subject: [PATCH 4/4] Fix bug
++
++---
++ client3.py | 2 +-
++ 1 file changed, 1 insertion(+), 1 deletion(-)
++
++diff --git a/client3.py b/client3.py
++index a517f2c..65967b2 100644
++--- a/client3.py
+++++ b/client3.py
++@@ -42,7 +42,7 @@ def getDataPoint(quote):
++ def getRatio(price_a, price_b):
++     """ Get ratio of price_a and price_b """
++     """ ------------- Update this function ------------- """
++-    if (price_b === 0):
+++    if (price_b == 0):
++         return
++     return price_a / price_b
++ 
++-- 
++2.34.1
++
+-- 
+2.37.0 (Apple Git-136)
+
